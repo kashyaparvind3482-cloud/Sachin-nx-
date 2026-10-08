@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachin NX | Fashion Store</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#070707;color:#fff;overflow-x:hidden}
+
+/* NAVBAR */
+nav{
+ position:fixed;top:0;left:0;width:100%;z-index:99;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:17px 6%;
+ background:rgba(0,0,0,.75);
+ backdrop-filter:blur(12px);
+ border-bottom:1px solid #333
+}
+.logo{font-size:25px;font-weight:900;letter-spacing:1px}
+.logo span{color:#ffb000}
+.navbtn{
+ color:#fff;text-decoration:none;background:#111;
+ border:1px solid #666;padding:10px 18px;border-radius:25px
+}
+
+/* HERO */
+.hero{
+ min-height:100vh;
+ position:relative;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ overflow:hidden;
+ background:
+ linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.82)),
+ linear-gradient(135deg,#171717,#3b102d,#092b40,#171717);
+}
+
+/* REALISTIC-STYLE T-SHIRTS MADE INSIDE THE SINGLE CODE */
+.shirt{
+ position:absolute;
+ width:190px;height:220px;
+ opacity:.85;
+ filter:drop-shadow(0 20px 18px #000);
+ clip-path:polygon(
+ 28% 7%,8% 22%,0 35%,15% 47%,
+ 29% 38%,29% 100%,71% 100%,71% 38%,
+ 85% 47%,100% 35%,92% 22%,72% 7%,
+ 62% 2%,38% 2%
+ );
+}
+.shirt:after{
+ content:"";
+ position:absolute;left:45%;top:8%;
+ width:10%;height:80%;
+ background:rgba(255,255,255,.12);
+ border-radius:20px;
+}
+.red{
+ background:linear-gradient(135deg,#ff1744,#8b001c);
+ left:3%;top:18%;transform:rotate(-18deg)
+}
+.blue{
+ background:linear-gradient(135deg,#00c6ff,#0754c7);
+ right:2%;top:15%;transform:rotate(17deg)
+}
+.yellow{
+ background:linear-gradient(135deg,#ffd600,#ff6d00);
+ left:7%;bottom:3%;transform:rotate(12deg) scale(.8)
+}
+.purple{
+ background:linear-gradient(135deg,#e040fb,#651fff);
+ right:7%;bottom:3%;transform:rotate(-12deg) scale(.8)
+}
+
+.hero-content{
+ position:relative;z-index:2;
+ width:min(850px,90%);
+ padding:55px 25px;
+ background:rgba(0,0,0,.48);
+ backdrop-filter:blur(8px);
+ border:1px solid rgba(255,255,255,.18);
+ border-radius:30px;
+ box-shadow:0 25px 80px #000
+}
+.small{
+ font-size:12px;letter-spacing:5px;color:#ddd
+}
+h1{
+ font-size:clamp(60px,11vw,115px);
+ line-height:.9;letter-spacing:-5px;margin:20px 0
+}
+h1 span{color:#ffb000}
+.hero p{
+ max-width:650px;margin:auto;color:#ddd;
+ font-size:18px;line-height:1.7
+}
+.buttons{margin-top:30px}
+.btn{
+ display:inline-block;margin:5px;padding:14px 25px;
+ border-radius:30px;text-decoration:none;
+ color:#fff;background:#080808;border:1px solid #666;
+ font-weight:bold;transition:.3s
+}
+.btn:hover{background:#292929;transform:translateY(-3px)}
+
+/* COLLECTION */
+.collection{
+ padding:100px 6%;
+ background:
+ radial-gradient(circle at 10% 20%,#48102e,transparent 32%),
+ radial-gradient(circle at 90% 80%,#073b55,transparent 32%),#090909
+}
+.title{text-align:center;margin-bottom:45px}
+.title h2{font-size:45px}
+.title p{color:#999;margin-top:10px}
+.cards{
+ max-width:1100px;margin:auto;
+ display:grid;grid-template-columns:repeat(3,1fr);gap:20px
+}
+.card{
+ min-height:250px;padding:30px;border-radius:25px;
+ border:1px solid #444;
+ box-shadow:0 20px 45px #0008;
+ transition:.3s
+}
+.card:hover{transform:translateY(-8px)}
+.card:nth-child(1){background:linear-gradient(135deg,#e91e63,#4a0922)}
+.card:nth-child(2){background:linear-gradient(135deg,#087cff,#092a55)}
+.card:nth-child(3){background:linear-gradient(135deg,#9c27b0,#3b0750)}
+.card h3{font-size:26px;margin-bottom:15px}
+.card p{color:#eee;line-height:1.7}
+
+/* DETAILS */
+.details{
+ padding:90px 6%;
+ background:linear-gradient(135deg,#111,#050505)
+}
+.detail-grid{
+ max-width:1000px;margin:auto;
+ display:grid;grid-template-columns:1fr 1fr;gap:20px
+}
+.box{
+ padding:35px;border-radius:25px;
+ background:linear-gradient(145deg,#252525,#101010);
+ border:1px solid #333;
+ box-shadow:0 20px 50px #000
+}
+.box h2{font-size:34px;margin-bottom:22px}
+.row{
+ padding:17px 0;border-bottom:1px solid #333
+}
+.row:last-child{border:0}
+.row b{display:block;margin-bottom:6px}
+.row span{color:#aaa;line-height:1.5}
+
+/* CONTACT */
+.contact{
+ padding:90px 6%;text-align:center;
+ background:
+ radial-gradient(circle at 20% 50%,#52142d,transparent 35%),
+ radial-gradient(circle at 80% 50%,#083552,transparent 35%),#080808
+}
+.contact h2{font-size:45px}
+.contact p{color:#aaa;margin:12px 0 28px}
+footer{
+ text-align:center;padding:28px;
+ background:#030303;color:#777
+}
+footer b{color:#fff}
+
+/* MOBILE */
+@media(max-width:750px){
+ nav{padding:15px 5%}
+ .logo{font-size:20px}
+ .hero{min-height:760px}
+ .shirt{width:115px;height:140px}
+ .hero-content{padding:45px 18px}
+ h1{font-size:60px;letter-spacing:-3px}
+ .hero p{font-size:16px}
+ .cards,.detail-grid{grid-template-columns:1fr}
+ .collection,.details,.contact{padding:65px 5%}
+ .title h2,.contact h2{font-size:35px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+ <div class="logo">SACHIN <span>NX</span></div>
+ <a href="#contact" class="navbtn">Contact</a>
+</nav>
+
+<section class="hero">
+
+ <div class="shirt red"></div>
+ <div class="shirt blue"></div>
+ <div class="shirt yellow"></div>
+ <div class="shirt purple"></div>
+
+ <div class="hero-content">
+  <div class="small">FASHION • STYLE • COLLECTION</div>
+
+  <h1>SACHIN <span>NX</span></h1>
+
+  <p>
+   Discover stylish clothing, colourful T-Shirts
+   and modern fashion for your everyday look.
+   Wear your style. Show your confidence.
+  </p>
+
+  <div class="buttons">
+   <a class="btn" href="https://wa.me/918888797341" target="_blank">
+    WhatsApp
+   </a>
+   <a class="btn" href="tel:+918888797341">
+    Call Now
+   </a>
+  </div>
+ </div>
+
+</section>
+
+<section class="collection">
+
+ <div class="title">
+  <h2>Our Collection</h2>
+  <p>Style that matches your personality</p>
+ </div>
+
+ <div class="cards">
+
+  <div class="card">
+   <h3>Stylish T-Shirts</h3>
+   <p>
+    Modern designs, comfortable fits and
+    colourful styles for your everyday look.
+   </p>
+  </div>
+
+  <div class="card">
+   <h3>New Collection</h3>
+   <p>
+    Discover fresh fashion styles for people
+    who love to stay ahead of the trend.
+   </p>
+  </div>
+
+  <div class="card">
+   <h3>Trending Looks</h3>
+   <p>
+    Upgrade your wardrobe with modern looks
+    and stylish clothing choices.
+   </p>
+  </div>
+
+ </div>
+</section>
+
+<section class="details">
+
+ <div class="detail-grid">
+
+  <div class="box">
+   <h2>Sachin NX</h2>
+
+   <div class="row">
+    <b>Store</b>
+    <span>Fashion & Clothing Store</span>
+   </div>
+
+   <div class="row">
+    <b>Address</b>
+    <span>Bori, Maharashtra 441108</span>
+   </div>
+  </div>
+
+  <div class="box">
+   <h2>Contact</h2>
+
+   <div class="row">
+    <b>Phone Number</b>
+    <span>+91 88887 97341</span>
+   </div>
+
+   <div class="row">
+    <b>Opening Hours</b>
+    <span>9:00 AM – 9:30 PM</span>
+   </div>
+
+   <div class="row">
+    <b>Category</b>
+    <span>Clothing Store</span>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<section class="contact" id="contact">
+
+ <h2>Visit Sachin NX</h2>
+
+ <p>
+  Stylish fashion is waiting for you.
+ </p>
+
+ <a class="btn"
+    href="https://wa.me/918888797341"
+    target="_blank">
+  WhatsApp Us
+ </a>
+
+ <a class="btn"
+    href="tel:+918888797341">
+  Call +91 88887 97341
+ </a>
+
+</section>
+
+<footer>
+ © 2026 <b>Sachin NX</b> — Fashion & Style
+</footer>
+
+</body>
+  </html>
